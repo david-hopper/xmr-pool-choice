@@ -2,9 +2,9 @@
 Toolkit for helping to choose the right Monero minging pool based off of latency and decentralization of the network.
 
 ### Requirements
-Python 3
-tabular
-requests
+Python 3 \n
+tabular \n
+requests \n
 
 Using pip these can be installed using:
 ```
@@ -17,9 +17,9 @@ This collection of python scripts scans the currently posted mining pools on mon
 and reports back the data a potential miner would be interested in. Latency and network hash
 rate percentage. I give a recommendation as the top pool for the miner based on simple figure
 of merit defined as
-
-#FOM = (Latency)X(Network Hash %)
-
+\n
+FOM = (Latency)X(Network Hash %)
+\n
 Thus, the lower the FOM, the better the pool choice. I reject pools from this scoring that 
 disconnect and have a 0 reported hash rate for obvious reasons.
 
