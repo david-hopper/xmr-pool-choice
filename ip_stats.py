@@ -1,40 +1,60 @@
 def get_ping_stats(ip_address, repeats):
 	#Get the ping stats for a given IP address. These are returned via a raw string that will be parsed later on
 	import subprocess
+	import platform 
+
+	os_result = platform.system()
 	#print('Pinging ' + ip_address + '...')
 
 	try:
-		response = subprocess.check_output(
-		['ping', '-c', str(repeats), ip_address],
-		stderr=subprocess.STDOUT, # get all of the output
-		universal_newlines=True # return string not bytes
-		)
+		#Handle different ping formats for *nix based and windows systems
+		if os_result == 'Linux' or os_result == 'Linux2' or os_result == 'Darwin':
+			response = subprocess.check_output(
+			['ping', '-c', str(repeats), ip_address],
+			stderr=subprocess.STDOUT, # get all of the output
+			universal_newlines=True # return string not bytes
+			)
+
+		else:
+			output = subprocess.Popen(['ping -n' + str(repeats)],
+			stderr=subprocess.STDOUT,
+			universal_newlines=True
+			)
+
+			response = output.communicate()
 
 		#Immediately convert to numbers as the text is not that useful
-		avg, stddev = parse_ping_str(response)
-		
-		#print('Average %.2f ms' % avg )
-		
+		avg, stddev = parse_ping_str(response, os_result)
 
 	except subprocess.CalledProcessError:
-		print('Failed to contact the pool server:' + ip_address)
+		print('Failed to contact the pool server: ' + ip_address)
 		response = ''
 		avg = 0
 		stddev = 0
 
 	return avg, stddev
 
-def parse_ping_str(ip_response):
+def parse_ping_str(ip_response, os_result):
 	import re
 
-	output_string = "(\d+\.\d+)\/(\d+\.\d+)\/(\d+\.\d+)\s+ms"
-	match = re.search(output_string, ip_response)
+	if os_result == 'Linux' or os_result == 'Linux2' or os_result == 'Darwin':
+		output_string = "(\d+\.\d+)\/(\d+\.\d+)\/(\d+\.\d+)\/(\d+\.\d+)\s+ms" #min/avg/max/mdev
+		match = re.search(output_string, ip_response)
 
-	if not(match is None):
-		avg = float(match.group(1)) #avg is the first index of the match group
-		stddev = float(match.group(3)) #stddev is the third index of the match grou[]
+		if not(match is None):
+			avg = float(match.group(2)) #avg is the 2nd index of the match group
+			stddev = float(match.group(4)) #stddev is the fourth index of the match grou[]
+		else:
+			print('No values found!')
 	else:
-		print('No values found!')
+		output_string = "Minimum = \d+ms, Maximum = \d+ms, Average = \d+ms"
+		match = re.search(output_strinng, ip_response)
+
+		if not(match is None):
+			avg = float(match.group(3)) #avg is the 3rd index of the match group
+			stddev = 0 #Windows doesn't return the stddev, just pass this along as zero
+		else:
+			print('No values found!')
 
 	return avg, stddev
 

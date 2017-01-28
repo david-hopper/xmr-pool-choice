@@ -1,26 +1,11 @@
-  Rank  Pool                        Latency
-------  --------------------------  ---------
-     1  xmrpool.net                 14.45 ms
-     2  pariah.io                   20.19 ms
-     3  MoneroHash.com              31.00 ms
-     4  xmr.coolpool.io             33.74 ms
-     5  mixpools.org - us           47.02 ms
-     6  xmr.nanopool.org - uswest1  79.00 ms
-     7  xmr.nanopool.org - useast1  80.37 ms
-     8  mixpools.org - eu           91.05 ms
-     9  mineXMR.com                 93.11 ms
-    10  xmrpool.eu                  97.88 ms
-    11  usxmrpool.com               103.20 ms
-    12  monero.crypto-pool.fr       104.22 ms
-    13  xmr.suprnova.cc             106.89 ms
-    14  sheepman.mine.bz            107.00 ms
-    15  xmr.nanopool.org - eu1      109.69 ms
-    16  monero.us.to                111.03 ms
-    17  moneropool.com              115.48 ms
-    18  xmr.prohash.net             117.28 ms
-    19  supportXMR.com              120.43 ms
-    20  xmr.poolto.be               133.60 ms
-    21  monero.miners.pro           139.67 ms
-    22  pooldd.com                  271.14 ms
-    23  alimabi.cn                  325.50 ms
-    24  xmr.nanopool.org - asia1    486.98 ms
+  Rank  Pool                   Latency      Network %  Hash Rate      Miners
+------  ---------------------  ---------  -----------  -----------  --------
+     1  mineXMR.com            99.72 ms         6.443  3.6 MH/s         1027
+     2  xmrpool.eu             101.18 ms        0.06   33.7 kH/s          36
+     3  monero.crypto-pool.fr  104.95 ms       15.998  9.0 MH/s          922
+     4  xmr.prohash.net        116.44 ms        1.282  722.3 kH/s        134
+     5  moneropool.com         119.73 ms        3.084  1.7 MH/s          324
+     6  supportXMR.com         124.84 ms        0.303  170.7 kH/s        122
+     7  sheepman.mine.bz       128.20 ms        0.048  26.8 kH/s          24
+     8  monero.miners.pro      131.05 ms        0.007  4.0 kH/s            8
+     9  xmr.poolto.be          132.91 ms        0      N/A                 0
