@@ -36,7 +36,7 @@ Download Python3 if you don't already have it, I prefer the [miniconda3](https:/
 General note: it takes a few minutes to get the data from the network (I am not sure why the API calls take so long, it is an issue I am trying to work on) so please allow the script to run to completion. An example output (for an eastcoast based miner) would look like
 ```
 The top 10 pools based on latency are listed below. 
-It is recommended to chose a low latency, reliable, 
+It is recommended to choose a low latency, reliable, 
 and small pool with <10 % Network Hashrate. 
 The full results are written to the text file pool_results.txt 
 
