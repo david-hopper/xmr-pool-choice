@@ -39,7 +39,7 @@ The top 10 pools based on latency are listed below.
 It is recommended to chose a low latency, reliable, 
 and small pool with <10 % Network Hashrate. 
 The full results are written to the text file pool_results.txt 
-```
+
   Rank  Pool                        Latency      Network %  Hash Rate      Miners
 ------  --------------------------  ---------  -----------  -----------  --------
      1  MoneroHash.com              24.12 ms         1.703  841.4 kH/s        485
@@ -55,10 +55,8 @@ The full results are written to the text file pool_results.txt
  ```
 
 ### Detailed Summary
-This collection of python scripts scans the currently posted mining pools on [moneropools.com](http://moneropools.com/) and reports back some of the data a potential miner would be interested in such as latency and network hash rate percentage. The top 10 pools based off of latency are displayed, along with some of their stats. I reject pools that do not respond to a ping or have a reported 0 hash rate.
+This collection of python scripts scans the currently posted mining pools on [moneropools.com](http://moneropools.com/) and reports back some of the data a potential miner would be interested in such as latency and network hash rate percentage. The top 10 pools based off of latency are displayed, along with some of their stats. I reject pools that do not respond to a ping or have a reported 0 hash rate. I initially created this to work on a rigorous pool-selection criteria, but I am still tinkering with the details.
 
-
-This will take a few minutes to run, depending on how responsive the pings and APIs are. The top 10 results will be shown in order, along with their relevant statsitics. All details are saved to pool_stats.txt so you don't have to run again if you close your terminal.
 
 ### Future features
 - Choose pools from a certain region you would like to only choose from. 
