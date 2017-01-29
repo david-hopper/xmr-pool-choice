@@ -11,8 +11,7 @@ that were flagged as potential scams
 
 #Group the addresses into continents to reflect the moneropools.com organizational structure
 us_pool_names = ['MoneroHash.com', 'xmr.coolpool.io',
-				'pariah.io', 'monero.us.to',
-				'usxmrpool.com']
+				'monero.us.to','usxmrpool.com']
 
 us_addresses = ['monerohash.com', 'xmr.coolpool.io',
 				'monero.us.to', 'pool.usxmrpool.com']
@@ -51,7 +50,7 @@ asia_api = ['http://xmrapi.alimabi.cn:80/stats', 'http://api.pooldd.com:8080/sta
 asia_dict = {'Pool Names' : asia_pool_names, 'Addresses' : asia_addresses, 'API' : asia_api}
 
 global_pool_names = ['xmr.suprnova.cc', 'xmrpool.net', 
-						'xmr.nanopool.org - eu1', 'xmr.nanopool.org -eu2 (DDoS protected)',
+						'xmr.nanopool.org - eu1', 'xmr.nanopool.org -eu2',
 						'xmr.nanopool.org - useast1', 'xmr.nanopool.org - uswest1',
 						'xmr.nanopool.org - asia1', 'mixpools.org - eu', 'mixpools.org - us']
 

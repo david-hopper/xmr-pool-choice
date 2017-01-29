@@ -41,7 +41,7 @@ pool_addresses = list(itertools.chain.from_iterable(pool_addresses))
 pool_apis = list(itertools.chain.from_iterable(pool_apis))
 
 #How many ping repeats, this must be >1 to get a standard deviation
-repeats = 3
+repeats = 5
 
 #Gather the average and standard deviation of the ping request, returns 0 if a connection couldn't be made
 print('Gathering latency statistics...')
@@ -69,15 +69,10 @@ for x, y in zip(avg, hashrate_percentage) :
 		hashrate_percentage.pop(ii)
 	ii=ii+1
 
-
-#Calculate figure of merit
-fom = [(x**2)*y for x, y in zip(avg, hashrate_percentage)]
-
+#Sort the results based on latency, prepare for output to console and text file
 print('Sorting...')
-#Calculate the figure of Merit
-sorted_idx = sorted(range(len(avg)), key=lambda k: fom[k])
+sorted_idx = sorted(range(len(avg)), key=lambda k: avg[k])
 
-sorted_fom = [fom[x] for x in sorted_idx]
 sorted_ips = [pool_names[x] for x in sorted_idx]
 sorted_avg = [avg[x] for x in sorted_idx]
 sorted_hashrate = [hashrate[x] for x in sorted_idx]
@@ -87,9 +82,10 @@ sorted_hash_percentage = [hashrate_percentage[x] for x in sorted_idx]
 sorted_hashrate_str = [gps.readable_hashrate(x) for x in sorted_hashrate]
 
 
-print('The top 10 pools based on the figure of merit are listed below. \n' \
-	  'The full results are written to the text file pool_results.txt \n' \
-	  '-------------------------------------------------------------')
+print('The top 10 pools based on latency are listed below. \n' \
+	  'It is recommended to chose a low latency, reliable, \n' \
+	  'and small pool with <10 % Network Hashrate. \n' \
+	  'The full results are written to the text file pool_results.txt \n')
 
 headers = ['Rank', 'Pool', 'Latency', 'Network %', 'Hash Rate', 'Miners']
 ii = 0
