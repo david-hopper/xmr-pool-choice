@@ -4,7 +4,7 @@ import json
 I would like to make this an automated web scraper, but I figure
 the pool list won't change that often so for now I can manually
 update it.
-This was taken from moneropools.com on 1/25/2017, 22:37 EST. I
+This was taken from moneropools.com on 1/27/2017, 23:40 EST. I
 did not include pools running at a reported 0 hash rate, or others
 that were flagged as potential scams
 '''
@@ -51,7 +51,7 @@ asia_api = ['http://xmrapi.alimabi.cn:80/stats', 'http://api.pooldd.com:8080/sta
 asia_dict = {'Pool Names' : asia_pool_names, 'Addresses' : asia_addresses, 'API' : asia_api}
 
 global_pool_names = ['xmr.suprnova.cc', 'xmrpool.net', 
-						'xmr.nanopool.org - eu1', 'xmr.nanopool.org -eu2',
+						'xmr.nanopool.org - eu1', 'xmr.nanopool.org -eu2 (DDoS protected)',
 						'xmr.nanopool.org - useast1', 'xmr.nanopool.org - uswest1',
 						'xmr.nanopool.org - asia1', 'mixpools.org - eu', 'mixpools.org - us']
 
