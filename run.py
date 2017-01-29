@@ -83,7 +83,7 @@ sorted_hashrate_str = [gps.readable_hashrate(x) for x in sorted_hashrate]
 
 
 print('The top 10 pools based on latency are listed below. \n' \
-	  'It is recommended to chose a low latency, reliable, \n' \
+	  'It is recommended to choose a low latency, reliable, \n' \
 	  'and small pool with <10 % Network Hashrate. \n' \
 	  'The full results are written to the text file pool_results.txt \n')
 
