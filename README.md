@@ -39,7 +39,7 @@ The top 10 pools based on latency are listed below.
 It is recommended to chose a low latency, reliable, 
 and small pool with <10 % Network Hashrate. 
 The full results are written to the text file pool_results.txt 
-```
+
   Rank  Pool                        Latency    Fee      Network %  Hash Rate      Miners
 ------  --------------------------  ---------  -----  -----------  -----------  --------
      1  MoneroHash.com              27.64 ms   1.6 %        1.666  854.3 kH/s        478
