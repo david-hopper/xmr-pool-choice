@@ -21,7 +21,7 @@ Thus, the lower the FOM, the better the pool choice. The latency squared favors 
 
 
 ### Usage
-Currently there are no user supplied arguments, so you just have to open a terminal and run:
+Currently there are no user supplied arguments, so you just have to open a terminal, move to the ~/xmr-pool-choice/ directory and run:
 ```
 	python run.py
 ```
