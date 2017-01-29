@@ -13,32 +13,20 @@ with open('pool_list.json') as data_file:
 pool_names = []
 pool_addresses = []
 pool_apis = []
+pool_fees = []
 
-eur_dict = pool_data['Europe']
-us_dict = pool_data['USA']
-global_dict = pool_data['Global']
-asia_dict = pool_data['Asia']
+regions = ['Global', 'Europe', 'USA', 'Asia']
 
-#Pull out the 3 sections of pool information we will be using
-pool_names.append(eur_dict['Pool Names'])
-pool_names.append(us_dict['Pool Names'])
-pool_names.append(asia_dict['Pool Names'])
-pool_names.append(global_dict['Pool Names'])
+[pool_names.append(pool_data[x]['Pool Names']) for x in regions]
+[pool_addresses.append(pool_data[x]['Addresses']) for x in regions]
+[pool_apis.append(pool_data[x]['API']) for x in regions]
+[pool_fees.append(pool_data[x]['Fees']) for x in regions]
 
-pool_addresses.append(eur_dict['Addresses'])
-pool_addresses.append(us_dict['Addresses'])
-pool_addresses.append(asia_dict['Addresses'])
-pool_addresses.append(global_dict['Addresses'])
-
-pool_apis.append(eur_dict['API'])
-pool_apis.append(us_dict['API'])
-pool_apis.append(asia_dict['API'])
-pool_apis.append(global_dict['API'])
-
-#Fix up the lists to be flat lists for easy parsing
+#Flatten lists for easy parsing
 pool_names = list(itertools.chain.from_iterable(pool_names))
 pool_addresses = list(itertools.chain.from_iterable(pool_addresses))
 pool_apis = list(itertools.chain.from_iterable(pool_apis))
+pool_fees = list(itertools.chain.from_iterable(pool_fees))
 
 #How many ping repeats, this must be >1 to get a standard deviation
 repeats = 5
@@ -64,6 +52,7 @@ for x, y in zip(avg, hashrate_percentage) :
 	if x == 0 or y == 0:
 		avg.pop(ii)
 		pool_names.pop(ii)
+		pool_fees.pop(ii)
 		hashrate.pop(ii)
 		miners.pop(ii)
 		hashrate_percentage.pop(ii)
@@ -78,21 +67,22 @@ sorted_avg = [avg[x] for x in sorted_idx]
 sorted_hashrate = [hashrate[x] for x in sorted_idx]
 sorted_miners = [miners[x] for x in sorted_idx]
 sorted_hash_percentage = [hashrate_percentage[x] for x in sorted_idx]
+sorted_fees = [pool_fees[x] for x in sorted_idx]
 
 sorted_hashrate_str = [gps.readable_hashrate(x) for x in sorted_hashrate]
-
+sorted_fees_str = [gps.readable_fee(x) for x in sorted_fees]
 
 print('The top 10 pools based on latency are listed below. \n' \
 	  'It is recommended to choose a low latency, reliable, \n' \
 	  'and small pool with <10 % Network Hashrate. \n' \
 	  'The full results are written to the text file pool_results.txt \n')
 
-headers = ['Rank', 'Pool', 'Latency', 'Network %', 'Hash Rate', 'Miners']
+headers = ['Rank', 'Pool', 'Latency', 'Fee', 'Network %', 'Hash Rate', 'Miners']
 ii = 0
 combined_list = []
 for x in sorted_avg:
-	combined_list.append([str(ii+1) + '.', sorted_ips[ii], '%.2f ms' % sorted_avg[ii], '%.3f' % sorted_hash_percentage[ii], \
-							sorted_hashrate_str[ii], '%d' % sorted_miners[ii]])
+	combined_list.append([str(ii+1) + '.', sorted_ips[ii], '%.2f ms' % sorted_avg[ii], sorted_fees_str[ii],
+						 '%.3f' % sorted_hash_percentage[ii], sorted_hashrate_str[ii], '%d' % sorted_miners[ii]])
 	ii = ii+1
 
 with open('pool_results.txt', 'w') as text_file:

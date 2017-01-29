@@ -1,39 +1,4 @@
 {
-    "Global": {
-        "Addresses": [
-            "xmr.suprnova.cc",
-            "mine.xmrpool.net",
-            "xmr-eu1.nanopool.org",
-            "xmr-eu2.nanopool.org",
-            "xmr-us-east1.nanopool.org",
-            "xmr-us-west1.nanopool.org",
-            "xmr-asia1.nanopool.org",
-            "xmr.mixpools.org",
-            "xmr-us.mixpools.org"
-        ],
-        "API": [
-            "https://xmr.suprnova.cc/index.php?page=api&action=public",
-            "https://api.xmrpool.net/stats",
-            "https://api.nanopool.org/v1/xmr/pool/hashrate/",
-            "https://api.nanopool.org/v1/xmr/pool/hashrate/",
-            "https://api.nanopool.org/v1/xmr/pool/hashrate/",
-            "https://api.nanopool.org/v1/xmr/pool/hashrate/",
-            "https://api.nanopool.org/v1/xmr/pool/hashrate/",
-            "https://mixpools.org:8117/stats",
-            "https://mixpools.org:8117/stats"
-        ],
-        "Pool Names": [
-            "xmr.suprnova.cc",
-            "xmrpool.net",
-            "xmr.nanopool.org - eu1",
-            "xmr.nanopool.org -eu2",
-            "xmr.nanopool.org - useast1",
-            "xmr.nanopool.org - uswest1",
-            "xmr.nanopool.org - asia1",
-            "mixpools.org - eu",
-            "mixpools.org - us"
-        ]
-    },
     "USA": {
         "Addresses": [
             "monerohash.com",
@@ -41,17 +6,23 @@
             "monero.us.to",
             "pool.usxmrpool.com"
         ],
+        "Pool Names": [
+            "MoneroHash.com",
+            "xmr.coolpool.io",
+            "monero.us.to",
+            "usxmrpool.com"
+        ],
         "API": [
             "https://monerohash.com/api/stats",
             "http://66.23.241.140:8118/stats",
             "http://monero.us.to:8117/stats",
             "https://usxmrpool.com:8119/stats"
         ],
-        "Pool Names": [
-            "MoneroHash.com",
-            "xmr.coolpool.io",
-            "monero.us.to",
-            "usxmrpool.com"
+        "Fees": [
+            0.016,
+            0.009,
+            0.01,
+            0.004
         ]
     },
     "Europe": {
@@ -66,6 +37,17 @@
             "xmr.crypto-pool.fr",
             "pool.miners.pro"
         ],
+        "Pool Names": [
+            "supportXMR.com",
+            "xmrpool.eu",
+            "xmr.poolto.be",
+            "mineXMR.com",
+            "xmr.prohash.net",
+            "sheepman.mine.bz",
+            "moneropool.com",
+            "monero.crypto-pool.fr",
+            "monero.miners.pro"
+        ],
         "API": [
             "http://supportxmr.com:8117/stats",
             "http://xmrpool.eu:8117/stats",
@@ -77,16 +59,16 @@
             "https://monero.crypto-pool.fr:8091/stats",
             "http://pool.miners.pro:8117/stats"
         ],
-        "Pool Names": [
-            "supportXMR.com",
-            "xmrpool.eu",
-            "xmr.poolto.be",
-            "mineXMR.com",
-            "xmr.prohash.net",
-            "sheepman.mine.bz",
-            "moneropool.com",
-            "monero.crypto-pool.fr",
-            "monero.miners.pro"
+        "Fees": [
+            0.005,
+            0.01,
+            0.01,
+            0.01,
+            0.01,
+            0,
+            0.019,
+            0.02,
+            0.007
         ]
     },
     "Asia": {
@@ -94,13 +76,63 @@
             "139.129.107.21",
             "xmr.pooldd.com"
         ],
+        "Pool Names": [
+            "alimabi.cn",
+            "pooldd.com"
+        ],
         "API": [
             "http://xmrapi.alimabi.cn:80/stats",
             "http://api.pooldd.com:8080/stats"
         ],
+        "Fees": [
+            0.007,
+            0.02
+        ]
+    },
+    "Global": {
+        "Addresses": [
+            "xmr.suprnova.cc",
+            "mine.xmrpool.net",
+            "xmr-eu1.nanopool.org",
+            "xmr-eu2.nanopool.org",
+            "xmr-us-east1.nanopool.org",
+            "xmr-us-west1.nanopool.org",
+            "xmr-asia1.nanopool.org",
+            "xmr.mixpools.org",
+            "xmr-us.mixpools.org"
+        ],
         "Pool Names": [
-            "alimabi.cn",
-            "pooldd.com"
+            "xmr.suprnova.cc",
+            "xmrpool.net",
+            "xmr.nanopool.org - eu1",
+            "xmr.nanopool.org -eu2",
+            "xmr.nanopool.org - useast1",
+            "xmr.nanopool.org - uswest1",
+            "xmr.nanopool.org - asia1",
+            "mixpools.org - eu",
+            "mixpools.org - us"
+        ],
+        "API": [
+            "https://xmr.suprnova.cc/index.php?page=api&action=public",
+            "https://api.xmrpool.net/stats",
+            "https://api.nanopool.org/v1/xmr/pool/hashrate/",
+            "https://api.nanopool.org/v1/xmr/pool/hashrate/",
+            "https://api.nanopool.org/v1/xmr/pool/hashrate/",
+            "https://api.nanopool.org/v1/xmr/pool/hashrate/",
+            "https://api.nanopool.org/v1/xmr/pool/hashrate/",
+            "https://mixpools.org:8117/stats",
+            "https://mixpools.org:8117/stats"
+        ],
+        "Fees": [
+            "Unknown",
+            "Variable 0.4 - 6.5%",
+            0,
+            0,
+            0,
+            0,
+            0,
+            0.005,
+            0.005
         ]
     }
 }

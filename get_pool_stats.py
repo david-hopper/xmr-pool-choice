@@ -66,3 +66,17 @@ def readable_hashrate(hashrate):
 
 	return converted_hashrate
 
+#Convert the fee number to a percent, if 'Unknown' or 'Variable' leave alone
+def readable_fee(fee):
+	import re
+
+	match = re.search('(Unknown|Variable)', str(fee))
+
+	if not(match is None):
+		str_fee = str(fee)
+	else:
+		fee = float(fee)*100
+		str_fee = '%.1f %%' % fee
+
+	return str_fee
+

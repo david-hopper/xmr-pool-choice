@@ -36,40 +36,36 @@ Download Python3 if you don't already have it, I prefer the [miniconda3](https:/
 General note: it takes a few minutes to get the data from the network (I am not sure why the API calls take so long, it is an issue I am trying to work on) so please allow the script to run to completion. An example output (for an eastcoast based miner) would look like
 ```
 The top 10 pools based on latency are listed below. 
-It is recommended to choose a low latency, reliable, 
+It is recommended to chose a low latency, reliable, 
 and small pool with <10 % Network Hashrate. 
 The full results are written to the text file pool_results.txt 
-
-  Rank  Pool                        Latency      Network %  Hash Rate      Miners
-------  --------------------------  ---------  -----------  -----------  --------
-     1  MoneroHash.com              24.12 ms         1.703  841.4 kH/s        485
-     2  xmr.coolpool.io             34.10 ms         0.045  22.1 kH/s          33
-     3  mixpools.org - us           44.72 ms         0.323  159.8 kH/s          7
-     4  xmr.nanopool.org - useast1  79.21 ms         1.455  719.0 kH/s        124
-     5  xmr.nanopool.org - uswest1  79.36 ms         1.455  719.0 kH/s        124
-     6  monero.us.to                85.32 ms         0.001  683.0 H/s           6
-     7  usxmrpool.com               87.21 ms         0.127  62.6 kH/s          34
-     8  mineXMR.com                 93.58 ms         6.654  3.3 MH/s         1085
-     9  mixpools.org - eu           101.93 ms        0.323  159.8 kH/s          7
-    10  xmr.nanopool.org -eu2       103.27 ms        1.455  719.0 kH/s        124
+```
+  Rank  Pool                        Latency    Fee      Network %  Hash Rate      Miners
+------  --------------------------  ---------  -----  -----------  -----------  --------
+     1  MoneroHash.com              27.64 ms   1.6 %        1.666  854.3 kH/s        478
+     2  xmr.coolpool.io             32.31 ms   0.9 %        0.047  23.9 kH/s          34
+     3  mixpools.org - us           43.00 ms   0.5 %        0.193  98.8 kH/s           8
+     4  xmr.nanopool.org - uswest1  80.62 ms   0.0 %        1.491  764.5 kH/s        133
+     5  usxmrpool.com               88.38 ms   0.4 %        0.124  63.3 kH/s          26
+     6  mixpools.org - eu           92.03 ms   0.5 %        0.193  98.8 kH/s           8
+     7  mineXMR.com                 92.69 ms   1.0 %        6.713  3.4 MH/s         1087
+     8  monero.us.to                98.62 ms   1.0 %        0.002  1.2 kH/s            7
+     9  monero.crypto-pool.fr       99.70 ms   2.0 %       18.015  9.2 MH/s          906
+    10  xmrpool.eu                  101.05 ms  1.0 %        0.062  32.0 kH/s          32
  ```
 
-### Detailed Summary
-This collection of python scripts scans the currently posted mining pools on [moneropools.com](http://moneropools.com/) and reports back some of the data a potential miner would be interested in such as latency and network hash rate percentage. The top 10 pools based off of latency are displayed, along with some of their stats. I reject pools that do not respond to a ping or have a reported 0 hash rate. I initially created this to work on a rigorous pool-selection criteria, but I am still tinkering with the details.
-
+### Plans for recommendation
+Looking to develop some metric that can be calculated from the data this script acquires. This could then provide a way to suggest top pools for a miner to join that is beneificial to the miner as well as the network decentralizaition.
 
 ### Future features
+- Calculate average block per day to give a miner how many additions to their account they can expect
 - Choose pools from a certain region you would like to only choose from. 
 - Incorporate tabulate and requests into the code base so they don't need to be installed ahead of time.
-- Create a script for sorting the results in other ways from the pool_results.txt file
-- Create an executable for Windows users to alleviate need to download python 3.
-- Pool Up-time. Currently pools don't report their up-time through the API, and I belive only supportXMR.com has a measure of it. However, this is another extremely important metric a miner cares about when choosing their pool.
-- Web scraper that automatically updates the pools posted to www.moneropools.com and gathers their API information
 
 
-I'd like to thank the folk(s) at [moneropools.com](http://moneropools.com) and [supportXMR.com](http://supportXMR.com) for maintaing all of the pool information that made this possible. Please support them!
+This code relies on the data gathered by the folk(s) at [moneropools.com](www.moneropools.com) and [supportXMR.com](www.supportXMR.com) for maintaing all of the pool information. Check them out.
 
-XMR Donations:
+XMR Donations if you feel this was useful:
 ```
 49P4SVT2DewdN44NKtySdf4d3LsYN4esS3VpC3eFUFrUWW3UDp76aaZbzijwmzso14C9ZhhAEtAiU3KTq27Tf4CfKbLA1Sx
 ```
