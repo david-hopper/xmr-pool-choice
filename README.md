@@ -67,7 +67,7 @@ This collection of python scripts scans the currently posted mining pools on [mo
 - Web scraper that automatically updates the pools posted to www.moneropools.com and gathers their API information
 
 
-I'd like to thank the folk(s) at [moneropools.com](www.moneropools.com) and [supportXMR.com](www.supportXMR.com) for maintaing all of the pool information that made this possible. Please support them!
+I'd like to thank the folk(s) at [moneropools.com](http://moneropools.com) and [supportXMR.com](http://supportXMR.com) for maintaing all of the pool information that made this possible. Please support them!
 
 XMR Donations:
 ```
