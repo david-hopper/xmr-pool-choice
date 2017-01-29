@@ -21,19 +21,19 @@ asia_dict = pool_data['Asia']
 
 #Pull out the 3 sections of pool information we will be using
 pool_names.append(eur_dict['Pool Names'])
-#pool_names.append(us_dict['Pool Names'])
-#pool_names.append(asia_dict['Pool Names'])
-#pool_names.append(global_dict['Pool Names'])
+pool_names.append(us_dict['Pool Names'])
+pool_names.append(asia_dict['Pool Names'])
+pool_names.append(global_dict['Pool Names'])
 
 pool_addresses.append(eur_dict['Addresses'])
-#pool_addresses.append(us_dict['Addresses'])
-#pool_addresses.append(asia_dict['Addresses'])
-#pool_addresses.append(global_dict['Addresses'])
+pool_addresses.append(us_dict['Addresses'])
+pool_addresses.append(asia_dict['Addresses'])
+pool_addresses.append(global_dict['Addresses'])
 
 pool_apis.append(eur_dict['API'])
-#pool_apis.append(us_dict['API'])
-#pool_apis.append(asia_dict['API'])
-#pool_apis.append(global_dict['API'])
+pool_apis.append(us_dict['API'])
+pool_apis.append(asia_dict['API'])
+pool_apis.append(global_dict['API'])
 
 #Fix up the lists to be flat lists for easy parsing
 pool_names = list(itertools.chain.from_iterable(pool_names))
@@ -44,38 +44,50 @@ pool_apis = list(itertools.chain.from_iterable(pool_apis))
 repeats = 3
 
 #Gather the average and standard deviation of the ping request, returns 0 if a connection couldn't be made
-print('Gathering latency statistics. This can take some time..')
+print('Gathering latency statistics...')
 avg, stddev = zip(*(ip_stats.get_ping_stats(x, repeats) for x in pool_addresses))
 
 
-print('Gathering Hash Rates. This can take some time...')
+print('Gathering pool stats (hash rates, miners, network hashrate) ...')
 hashrate, miners = zip(*(gps.get_pool_data(x) for x in pool_apis))
 network_hashrate = gps.get_network_hashrate()
+hashrate_percentage = [x/network_hashrate*100 for x in hashrate]
+
+#Convert tuples to lists for popping
+avg = list(avg)
+hashrate = list(hashrate)
+miners = list(miners)
+
+#failed pings and hashrates report zero and are thus popped off the list
+ii = 0
+for x, y in zip(avg, hashrate_percentage) :
+	if x == 0 or y == 0:
+		avg.pop(ii)
+		pool_names.pop(ii)
+		hashrate.pop(ii)
+		miners.pop(ii)
+		hashrate_percentage.pop(ii)
+	ii=ii+1
+
+
+#Calculate figure of merit
+fom = [(x**2)*y for x, y in zip(avg, hashrate_percentage)]
 
 print('Sorting...')
-sorted_idx = sorted(range(len(avg)), key=lambda k: avg[k])
+#Calculate the figure of Merit
+sorted_idx = sorted(range(len(avg)), key=lambda k: fom[k])
 
+sorted_fom = [fom[x] for x in sorted_idx]
 sorted_ips = [pool_names[x] for x in sorted_idx]
 sorted_avg = [avg[x] for x in sorted_idx]
 sorted_hashrate = [hashrate[x] for x in sorted_idx]
 sorted_miners = [miners[x] for x in sorted_idx]
-sorted_hash_percentage = [x/network_hashrate*100 for x in sorted_hashrate]
+sorted_hash_percentage = [hashrate_percentage[x] for x in sorted_idx]
 
 sorted_hashrate_str = [gps.readable_hashrate(x) for x in sorted_hashrate]
-#failed pings report zero and are thus popped off the list
-ii = 0
-for x in sorted_avg:
-	if x==0:
-		sorted_avg.pop(ii)
-		sorted_ips.pop(ii)
-		sorted_hashrate.pop(ii)
-		sorted_hashrate_str.pop(ii)
-		sorted_miners.pop(ii)
-		sorted_hash_percentage.pop(ii)
-	ii=ii+1
 
 
-print('The top 10 latency pools are listed below. \n' \
+print('The top 10 pools based on the figure of merit are listed below. \n' \
 	  'The full results are written to the text file pool_results.txt \n' \
 	  '-------------------------------------------------------------')
 
