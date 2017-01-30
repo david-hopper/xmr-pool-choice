@@ -12,7 +12,7 @@ For a fresh Linux install, follow these commands to download the python3 package
 	sudo apt install python3-pip
 	pip3 install tabulate requests
 	git clone https://github.com/timekelp/xmr-pool-choice
-	cd /xmr-pool-choice
+	cd xmr-pool-choice
 	python3 run.py
 ```
 
