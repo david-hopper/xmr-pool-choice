@@ -63,7 +63,7 @@ Looking to develop some metric that can be calculated from the data this script 
 - Incorporate tabulate and requests into the code base so they don't need to be installed ahead of time.
 
 
-This code relies on the data gathered by the folk(s) at [moneropools.com](www.moneropools.com) and [supportXMR.com](www.supportXMR.com) for maintaing all of the pool information. Check them out.
+This code relies on the data gathered by the folk(s) at [moneropools.com](http://moneropools.com) and [supportXMR.com](http://supportXMR.com) for maintaing all of the pool information. Check them out.
 
 XMR Donations if you feel this was useful:
 ```
