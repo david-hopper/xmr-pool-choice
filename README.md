@@ -1,5 +1,5 @@
 ### xmr-pool-choice 
-Toolkit for helping to choose the right Monero minging pool based off of latency and decentralization of the network. Also, a json database containing the most recent accepted pool names, mining addresses, and live stats APIs is included.
+Toolkit for helping to choose the right Monero mining pool based off of latency and decentralization of the network. Also, a json database containing the most recent accepted pool names, mining addresses, and live stats APIs is included.
 
 ### Requirements
 - Python 3
