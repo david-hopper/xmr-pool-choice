@@ -1,5 +1,5 @@
 ### xmr-pool-choice 
-Toolkit for helping to choose the right Monero mining pool based off of latency and decentralization of the network. Also, a json database containing the most recent accepted pool names, mining addresses, and live stats APIs is included.
+Toolkit for helping to choose the right Monero minging pool based off of latency and decentralization of the network. Also, a json database containing the most recent accepted pool names, mining addresses, and live stats APIs is included.
 
 ### Requirements
 - Python 3
@@ -12,7 +12,7 @@ For a fresh Linux install, follow these commands to download the python3 package
 	sudo apt install python3-pip
 	pip3 install tabulate requests
 	git clone https://github.com/timekelp/xmr-pool-choice
-	cd xmr-pool-choice
+	cd /xmr-pool-choice
 	python3 run.py
 ```
 
@@ -40,18 +40,18 @@ It is recommended to chose a low latency, reliable,
 and small pool with <10 % Network Hashrate. 
 The full results are written to the text file pool_results.txt 
 
-  Rank  Pool                        Latency    Fee      Network %  Hash Rate      Miners
-------  --------------------------  ---------  -----  -----------  -----------  --------
-     1  MoneroHash.com              27.64 ms   1.6 %        1.666  854.3 kH/s        478
-     2  xmr.coolpool.io             32.31 ms   0.9 %        0.047  23.9 kH/s          34
-     3  mixpools.org - us           43.00 ms   0.5 %        0.193  98.8 kH/s           8
-     4  xmr.nanopool.org - uswest1  80.62 ms   0.0 %        1.491  764.5 kH/s        133
-     5  usxmrpool.com               88.38 ms   0.4 %        0.124  63.3 kH/s          26
-     6  mixpools.org - eu           92.03 ms   0.5 %        0.193  98.8 kH/s           8
-     7  mineXMR.com                 92.69 ms   1.0 %        6.713  3.4 MH/s         1087
-     8  monero.us.to                98.62 ms   1.0 %        0.002  1.2 kH/s            7
-     9  monero.crypto-pool.fr       99.70 ms   2.0 %       18.015  9.2 MH/s          906
-    10  xmrpool.eu                  101.05 ms  1.0 %        0.062  32.0 kH/s          32
+  Rank  Pool                        Latency    Fee                    Network %  Hash Rate      Miners
+------  --------------------------  ---------  -------------------  -----------  -----------  --------
+     1  xmrpool.net                 17.28 ms   Variable 0.4 - 6.5%        0.412  218.3 kH/s         40
+     2  xmr.coolpool.io             32.24 ms   0.9 %                      0.022  11.6 kH/s          35
+     3  mixpools.org - us           45.55 ms   0.5 %                      0.229  121.4 kH/s          6
+     4  MoneroHash.com              48.12 ms   1.6 %                      1.829  970.0 kH/s        523
+     5  monero.us.to                75.64 ms   1.0 %                      0.001  448.0 H/s           4
+     6  xmr.nanopool.org - useast1  78.89 ms   1.0 %                      1.932  1.0 MH/s          184
+     7  xmr.nanopool.org - uswest1  79.41 ms   1.0 %                      1.932  1.0 MH/s          184
+     8  mineXMR.com                 90.89 ms   1.0 %                      4.787  2.5 MH/s         1128
+     9  mixpools.org - eu           92.43 ms   0.5 %                      0.229  121.4 kH/s          6
+    10  monero.crypto-pool.fr       99.11 ms   2.0 %                     18.024  9.6 MH/s          946
  ```
 
 ### Plans for recommendation
@@ -63,9 +63,12 @@ Looking to develop some metric that can be calculated from the data this script 
 - Incorporate tabulate and requests into the code base so they don't need to be installed ahead of time.
 
 
-This code relies on the data gathered by the folk(s) at [moneropools.com](http://moneropools.com) and [supportXMR.com](http://supportXMR.com) for maintaing all of the pool information. Check them out.
+This code relies on the data gathered by the folk(s) at [moneropools.com](www.moneropools.com) and [supportXMR.com](www.supportXMR.com) for maintaing all of the pool information. Check them out.
 
 XMR Donations if you feel this was useful:
 ```
 49P4SVT2DewdN44NKtySdf4d3LsYN4esS3VpC3eFUFrUWW3UDp76aaZbzijwmzso14C9ZhhAEtAiU3KTq27Tf4CfKbLA1Sx
 ```
+
+Pool list updated:
+January 31st, 2017

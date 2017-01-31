@@ -24,9 +24,14 @@ def get_pool_data(address):
 		try:
 			r = requests.get(address)
 			data = r.json()
+
+			#Handle the special use cases of new pools altering the API format (this isn't pretty)
 			if address == 'https://xmr.suprnova.cc/index.php?page=api&action=public':
 				hashrate = data['hashrate']
 				miners = data['workers']
+			elif address == 'https://api.xmrpool.net/pool/stats':
+				hashrate = data['pool_statistics']['hashRate']
+				miners = data['pool_statistics']['miners']
 			else:
 				hashrate = data['pool']['hashrate']
 				miners = data['pool']['miners']
@@ -70,7 +75,7 @@ def readable_hashrate(hashrate):
 def readable_fee(fee):
 	import re
 
-	match = re.search('(Unknown|Variable)', str(fee))
+	match = re.search('(Unknown|Variable|Optional)', str(fee))
 
 	if not(match is None):
 		str_fee = str(fee)

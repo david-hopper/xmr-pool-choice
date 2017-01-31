@@ -4,7 +4,7 @@ import json
 I would like to make this an automated web scraper, but I figure
 the pool list won't change that often so for now I can manually
 update it.
-This was taken from moneropools.com on 1/27/2017, 23:40 EST. I
+This was taken from moneropools.com on 1/31/2017, 8:00 EST. I
 did not include pools running at a reported 0 hash rate, or others
 that were flagged as potential scams
 '''
@@ -69,13 +69,13 @@ global_addresses = ['xmr.suprnova.cc', 'mine.xmrpool.net',
 						'xmr-asia1.nanopool.org',
 						'xmr.mixpools.org', 'xmr-us.mixpools.org']
 
-global_api = ['https://xmr.suprnova.cc/index.php?page=api&action=public', 'https://api.xmrpool.net/stats',
+global_api = ['https://xmr.suprnova.cc/index.php?page=api&action=public', 'https://api.xmrpool.net/pool/stats',
 				'https://api.nanopool.org/v1/xmr/pool/hashrate/', 'https://api.nanopool.org/v1/xmr/pool/hashrate/',
 				'https://api.nanopool.org/v1/xmr/pool/hashrate/', 'https://api.nanopool.org/v1/xmr/pool/hashrate/', 
 				'https://api.nanopool.org/v1/xmr/pool/hashrate/', 'https://mixpools.org:8117/stats',
 				'https://mixpools.org:8117/stats']
 
-global_fees = ['Unknown', 'Variable 0.4 - 6.5%', 0, 0, 0, 0, 0, .005, .005 ]
+global_fees = ['Optional!', 'Variable 0.4 - 6.5%', .01, .01, .01, .01, .01, .005, .005 ]
 
 global_dict = {'Pool Names' : global_pool_names, 'Addresses' : global_addresses, 'API' : global_api,
 			'Fees' : global_fees}
