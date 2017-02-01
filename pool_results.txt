@@ -1,0 +1,27 @@
+  Rank  Pool                        Latency    Fee                    Network %  Hash Rate      Miners
+------  --------------------------  ---------  -------------------  -----------  -----------  --------
+     1  xmrpool.net                 14.90 ms   Variable 0.4 - 6.5%        0.54   307.1 kH/s         47
+     2  MoneroHash.com              21.18 ms   1.6 %                      1.755  998.7 kH/s        518
+     3  xmr.coolpool.io             39.22 ms   0.9 %                      0.019  11.0 kH/s          31
+     4  minemonero.gq               46.91 ms   0.0 %                      0      87.8 H/s            1
+     5  mixpools.org - us           49.09 ms   0.5 %                      0.253  143.8 kH/s          7
+     6  monero.us.to                77.32 ms   1.0 %                      0.001  294.0 H/s           4
+     7  xmr.nanopool.org - uswest1  78.46 ms   1.0 %                      1.74   990.0 kH/s        188
+     8  xmr.nanopool.org - useast1  81.27 ms   1.0 %                      1.74   990.0 kH/s        188
+     9  mixpools.org - eu           90.58 ms   0.5 %                      0.253  143.8 kH/s          7
+    10  usxmrpool.com               91.86 ms   0.5 %                      0.066  37.3 kH/s          28
+    11  monero.crypto-pool.fr       103.87 ms  2.0 %                     17.165  9.8 MH/s          958
+    12  xmrpool.eu                  104.06 ms  1.0 %                      0.064  36.5 kH/s          38
+    13  sheepman.mine.bz            106.04 ms  0.0 %                      0.105  59.5 kH/s          33
+    14  xmr.nanopool.org -eu2       106.43 ms  1.0 %                      1.74   990.0 kH/s        188
+    15  mineXMR.com                 110.85 ms  1.0 %                      3.836  2.2 MH/s         1080
+    16  xmr.suprnova.cc             117.99 ms  Optional!                  0.004  2.4 kH/s          270
+    17  xmr.nanopool.org - eu1      128.87 ms  1.0 %                      1.74   990.0 kH/s        188
+    18  xmr.poolto.be               130.82 ms  1.0 %                      0.087  49.4 kH/s          58
+    19  monero.miners.pro           140.30 ms  0.7 %                      0.009  4.9 kH/s           14
+    20  xmr.prohash.net             143.46 ms  1.0 %                      2.305  1.3 MH/s          148
+    21  supportXMR.com              170.17 ms  0.5 %                      0.386  219.4 kH/s        126
+    22  moneropool.com              176.00 ms  1.9 %                      3.496  2.0 MH/s          330
+    23  pooldd.com                  296.91 ms  2.0 %                      0.017  9.6 kH/s            2
+    24  xmr.nanopool.org - asia1    319.01 ms  1.0 %                      1.74   990.0 kH/s        188
+    25  alimabi.cn                  362.96 ms  0.7 %                      1.469  835.9 kH/s          9

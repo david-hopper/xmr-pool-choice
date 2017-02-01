@@ -9,7 +9,7 @@ def get_pool_data(address):
 	if address == 'https://api.nanopool.org/v1/xmr/pool/hashrate/':
 		#The try except blocks are in case the pool api is down
 		try:
-			r = requests.get(address)
+			r = requests.get(address, timeout = 9)
 			data = r.json()
 			hashrate = data['data']
 
@@ -22,7 +22,7 @@ def get_pool_data(address):
 			miners = 0
 	else:
 		try:
-			r = requests.get(address)
+			r = requests.get(address, timeout = 9)
 			data = r.json()
 
 			#Handle the special use cases of new pools altering the API format (this isn't pretty)
@@ -47,7 +47,7 @@ def get_network_hashrate():
 
 	#Hard coded address to get the network hashrate from xmr.suprnova.cc -> it is the easiest to access from the api
 	address = 'https://xmr.suprnova.cc/index.php?page=api&action=public'
-	r = requests.get(address)
+	r = requests.get(address, timeout = 9)
 	data = r.json()
 
 	network_hashrate = data['network_hashrate']

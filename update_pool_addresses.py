@@ -11,15 +11,18 @@ that were flagged as potential scams
 
 #Group the addresses into continents to reflect the moneropools.com organizational structure
 us_pool_names = ['MoneroHash.com', 'xmr.coolpool.io',
-				'monero.us.to','usxmrpool.com']
+				'monero.us.to','usxmrpool.com',
+				'minemonero.gq', 'stablemoneropool.com']
 
 us_addresses = ['monerohash.com', 'xmr.coolpool.io',
-				'monero.us.to', 'pool.usxmrpool.com']
+				'monero.us.to', 'pool.usxmrpool.com',
+				'minemonero.gq', 'stablemoneropool.com']
 
 us_api = ['https://monerohash.com/api/stats', 'http://66.23.241.140:8118/stats',
-		  'http://monero.us.to:8117/stats', 'https://usxmrpool.com:8119/stats']
+		  'http://monero.us.to:8117/stats', 'https://usxmrpool.com:8119/stats',
+		  'http://minemonero.gq:8117/stats', 'http://stablemoneropool.com:8117/stats']
 
-us_fees = [.016, 0.009, .01, .004]
+us_fees = [.016, 0.009, .01, .005, 0, .009]
 
 us_dict = {'Pool Names' : us_pool_names, 'Addresses' : us_addresses, 'API' : us_api,
 			'Fees' : us_fees}
