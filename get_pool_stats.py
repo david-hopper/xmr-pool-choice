@@ -3,44 +3,58 @@ import requests
 import itertools
 
 #Make the HTTP request and parse data
-def get_pool_data(address):
+def get_pool_data(address_list):
 
-	#Handle the *one* case that decided not to conform to standards
-	if address == 'https://api.nanopool.org/v1/xmr/pool/hashrate/':
-		#The try except blocks are in case the pool api is down
-		try:
-			r = requests.get(address, timeout = 9)
-			data = r.json()
-			hashrate = data['data']
+	#Find the number of ips looping over and initiate the progress bar
+	num_pools = len(address_list)
+	i = 0
+	printProgressBar(i, num_pools, prefix = 'Progress', suffix = 'Complete', length = 40, fill = '█')
 
-			r = requests.get('https://api.nanopool.org/v1/xmr/pool/activeminers/')
-			data = r.json()
-			miners = data['data']
-		except:
-			#If the API request fails just set the hashrate and miners to 0, it will be handled elsewhere
-			hashrate = 0
-			miners = 0
-	else:
-		try:
-			r = requests.get(address, timeout = 9)
-			data = r.json()
+	hashrate_list = []
+	miners_list = []
+	for address in address_list:
+		#Handle the *one* case that decided not to conform to standards
+		if address == 'https://api.nanopool.org/v1/xmr/pool/hashrate/':
+			#The try except blocks are in case the pool api is down
+			try:
+				r = requests.get(address, timeout = 9)
+				data = r.json()
+				hashrate = data['data']
 
-			#Handle the special use cases of new pools altering the API format (this isn't pretty)
-			if address == 'https://xmr.suprnova.cc/index.php?page=api&action=public':
-				hashrate = data['hashrate']
-				miners = data['workers']
-			elif address == 'https://api.xmrpool.net/pool/stats':
-				hashrate = data['pool_statistics']['hashRate']
-				miners = data['pool_statistics']['miners']
-			else:
-				hashrate = data['pool']['hashrate']
-				miners = data['pool']['miners']
-		except:
-			#If the API request fails just set the hashrate and miners to 0, it will be handled elsewhere
-			hashrate = 0
-			miners = 0
+				r = requests.get('https://api.nanopool.org/v1/xmr/pool/activeminers/')
+				data = r.json()
+				miners = data['data']
+			except:
+				#If the API request fails just set the hashrate and miners to 0, it will be handled elsewhere
+				hashrate = 0
+				miners = 0
+		else:
+			try:
+				r = requests.get(address, timeout = 9)
+				data = r.json()
 
-	return hashrate, miners
+				#Handle the special use cases of new pools altering the API format (this isn't pretty)
+				if address == 'https://xmr.suprnova.cc/index.php?page=api&action=public':
+					hashrate = data['hashrate']
+					miners = data['workers']
+				elif address == 'https://api.xmrpool.net/pool/stats':
+					hashrate = data['pool_statistics']['hashRate']
+					miners = data['pool_statistics']['miners']
+				else:
+					hashrate = data['pool']['hashrate']
+					miners = data['pool']['miners']
+			except:
+				#If the API request fails just set the hashrate and miners to 0, it will be handled elsewhere
+				hashrate = 0
+				miners = 0
+
+		#Update and iterate
+		hashrate_list.append(hashrate)
+		miners_list.append(miners)
+		i += 1
+		printProgressBar(i, num_pools, prefix = 'Progress', suffix = 'Complete', length = 40, fill = '█')
+
+	return hashrate_list, miners_list
 
 #Grab the network hashrate from a fixed address
 def get_network_hashrate():
@@ -84,4 +98,25 @@ def readable_fee(fee):
 		str_fee = '%.1f %%' % fee
 
 	return str_fee
+
+# Print iterations progress
+def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█'):
+    """
+    Call in a loop to create terminal progress bar
+    @params:
+        iteration   - Required  : current iteration (Int)
+        total       - Required  : total iterations (Int)
+        prefix      - Optional  : prefix string (Str)
+        suffix      - Optional  : suffix string (Str)
+        decimals    - Optional  : positive number of decimals in percent complete (Int)
+        length      - Optional  : character length of bar (Int)
+        fill        - Optional  : bar fill character (Str)
+    """
+    percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
+    filledLength = int(length * iteration // total)
+    bar = fill * filledLength + '-' * (length - filledLength)
+    print('\r%s |%s| %s%% %s' % (prefix, bar, percent, suffix), end = '\r')
+    # Print New Line on Complete
+    if iteration == total: 
+        print()
 

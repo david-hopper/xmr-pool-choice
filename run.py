@@ -29,15 +29,15 @@ pool_apis = list(itertools.chain.from_iterable(pool_apis))
 pool_fees = list(itertools.chain.from_iterable(pool_fees))
 
 #How many ping repeats, this must be >1 to get a standard deviation
-repeats = 5
+repeats = 3
 
 #Gather the average and standard deviation of the ping request, returns 0 if a connection couldn't be made
 print('Gathering latency statistics...')
-avg, stddev = zip(*(ip_stats.get_ping_stats(x, repeats) for x in pool_addresses))
+avg, stddev = ip_stats.get_ping_stats(pool_addresses, repeats)
 
 
 print('Gathering pool stats (hash rates, miners, network hashrate) ...')
-hashrate, miners = zip(*(gps.get_pool_data(x) for x in pool_apis))
+hashrate, miners = gps.get_pool_data(pool_apis)
 network_hashrate = gps.get_network_hashrate()
 hashrate_percentage = [x/network_hashrate*100 for x in hashrate]
 
