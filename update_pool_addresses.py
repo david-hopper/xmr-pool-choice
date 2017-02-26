@@ -39,7 +39,7 @@ eur_addresses = ['pool.supportxmr.com', 'xmrpool.eu',
 					'mine.moneropool.com', 'xmr.crypto-pool.fr',
 					'pool.miners.pro']
 
-eur_api = ['http://supportxmr.com:8117/stats', 'http://xmrpool.eu:8117/stats',
+eur_api = ['https://pool.supportxmr.com/api/pool/stats', 'http://xmrpool.eu:8117/stats',
 			'http://mro.poolto.be:8117/stats', 'http://api.minexmr.com:8080/stats',
 			'http://xmr.prohash.net:8117/stats', 'http://sheepman.mine.bz:8117/stats',
 			'http://api.moneropool.com/live_stats', 'https://monero.crypto-pool.fr:8091/stats',
