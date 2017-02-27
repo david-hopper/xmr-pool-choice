@@ -3,8 +3,8 @@ import requests
 import itertools
 
 #Make the HTTP request and parse data
-def get_pool_data(address_list):
-
+def get_pool_data(address_list, snipa_format):
+	
 	#Find the number of ips looping over and initiate the progress bar
 	num_pools = len(address_list)
 	i = 0
@@ -37,7 +37,7 @@ def get_pool_data(address_list):
 				if address == 'https://xmr.suprnova.cc/index.php?page=api&action=public':
 					hashrate = data['hashrate']
 					miners = data['workers']
-				elif address == 'https://api.xmrpool.net/pool/stats':
+				elif address in snipa_format:
 					hashrate = data['pool_statistics']['hashRate']
 					miners = data['pool_statistics']['miners']
 				else:
@@ -89,7 +89,7 @@ def readable_hashrate(hashrate):
 def readable_fee(fee):
 	import re
 
-	match = re.search('(Unknown|Variable|Optional)', str(fee))
+	match = re.search('(Unknown|Variable|Optional|Adjustable)', str(fee))
 
 	if not(match is None):
 		str_fee = str(fee)

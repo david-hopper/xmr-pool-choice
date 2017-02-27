@@ -28,6 +28,9 @@ pool_addresses = list(itertools.chain.from_iterable(pool_addresses))
 pool_apis = list(itertools.chain.from_iterable(pool_apis))
 pool_fees = list(itertools.chain.from_iterable(pool_fees))
 
+#Pull out the pools that are running XMR_Snipa's new platform
+snipa_format = pool_data['Snipa Format']
+
 #How many ping repeats, this must be >1 to get a standard deviation
 repeats = 3
 
@@ -37,7 +40,7 @@ avg, stddev = ip_stats.get_ping_stats(pool_addresses, repeats)
 
 
 print('Gathering pool stats (hash rates, miners, network hashrate) ...')
-hashrate, miners = gps.get_pool_data(pool_apis)
+hashrate, miners = gps.get_pool_data(pool_apis, snipa_format)
 network_hashrate = gps.get_network_hashrate()
 hashrate_percentage = [x/network_hashrate*100 for x in hashrate]
 
@@ -50,6 +53,7 @@ miners = list(miners)
 ii = 0
 for x, y in zip(avg, hashrate_percentage) :
 	if x == 0 or y == 0:
+		print("Removing " + pool_names[ii])
 		avg.pop(ii)
 		pool_names.pop(ii)
 		pool_fees.pop(ii)

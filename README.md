@@ -71,4 +71,4 @@ XMR Donations if you feel this was useful:
 ```
 
 Pool list updated:
-February 1st, 2017
+February 26th, 2017

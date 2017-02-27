@@ -30,29 +30,29 @@ us_dict = {'Pool Names' : us_pool_names, 'Addresses' : us_addresses, 'API' : us_
 eur_pool_names = ['supportXMR.com', 'xmrpool.eu',
 					'xmr.poolto.be', 'mineXMR.com',
 					'xmr.prohash.net', 'sheepman.mine.bz',
-					'moneropool.com', 'monero.crypto-pool.fr',
-					'monero.miners.pro']
+					'xmr.mypool.online', 'moneropool.com', 
+					'monero.crypto-pool.fr','monero.miners.pro']
 
 eur_addresses = ['pool.supportxmr.com', 'xmrpool.eu',
 					'poolto.be', 'pool.minexmr.com',
 					'xmr.prohash.net', 'sheepman.mine.bz',
-					'mine.moneropool.com', 'xmr.crypto-pool.fr',
+					'xmr.mypool.online', 'mine.moneropool.com', 'xmr.crypto-pool.fr',
 					'pool.miners.pro']
 
 eur_api = ['https://pool.supportxmr.com/api/pool/stats', 'http://xmrpool.eu:8117/stats',
 			'http://mro.poolto.be:8117/stats', 'http://api.minexmr.com:8080/stats',
 			'http://xmr.prohash.net:8117/stats', 'http://sheepman.mine.bz:8117/stats',
-			'http://api.moneropool.com/live_stats', 'https://monero.crypto-pool.fr:8091/stats',
-			'http://pool.miners.pro:8117/stats']
+			'https://xmr.mypool.online/api/pool/stats', 'http://api.moneropool.com/live_stats', 
+			'https://monero.crypto-pool.fr:8091/stats', 'http://pool.miners.pro:8117/stats']
 
-eur_fees = [.005, .01, .01, .01, .01, 0, .019, .02, .007]
+eur_fees = ['Adjustable!', .01, .01, .01, .01, 0, 'Adjustable!', .019, .02, .007]
 
 eur_dict = {'Pool Names' : eur_pool_names, 'Addresses' : eur_addresses, 'API' : eur_api,
 			'Fees' : eur_fees}
 
 asia_pool_names = ['alimabi.cn', 'pooldd.com']
 
-asia_addresses = ['139.129.107.21', 'xmr.pooldd.com'] #I think alimabi.cn pool address is correct?
+asia_addresses = ['minexmr.alimabi.cn', 'xmr.pooldd.com'] 
 
 asia_api = ['http://xmrapi.alimabi.cn:80/stats', 'http://api.pooldd.com:8080/stats']
 
@@ -78,14 +78,16 @@ global_api = ['https://xmr.suprnova.cc/index.php?page=api&action=public', 'https
 				'https://api.nanopool.org/v1/xmr/pool/hashrate/', 'https://mixpools.org:8117/stats',
 				'https://mixpools.org:8117/stats']
 
-global_fees = ['Optional!', 'Variable 0.4 - 6.5%', .01, .01, .01, .01, .01, .005, .005 ]
+global_fees = ['Optional!', 'Adjustable!', .01, .01, .01, .01, .01, .005, .005 ]
 
 global_dict = {'Pool Names' : global_pool_names, 'Addresses' : global_addresses, 'API' : global_api,
 			'Fees' : global_fees}
 
+Snipa_pools =['https://pool.supportxmr.com/api/pool/stats', 'https://api.xmrpool.net/pool/stats',
+		'https://xmr.mypool.online/api/pool/stats']
 
 master_pool_list = {'USA' : us_dict, 'Europe' : eur_dict, 
-					'Global' : global_dict, 'Asia' : asia_dict}
+					'Global' : global_dict, 'Asia' : asia_dict, 'Snipa Format' : Snipa_pools}
 
 
 with open('pool_list.json', 'w') as f:
