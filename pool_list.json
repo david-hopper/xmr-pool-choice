@@ -110,7 +110,7 @@
             "monero.miners.pro"
         ],
         "API": [
-            "http://supportxmr.com:8117/stats",
+            "https://pool.supportxmr.com/api/pool/stats",
             "http://xmrpool.eu:8117/stats",
             "http://mro.poolto.be:8117/stats",
             "http://api.minexmr.com:8080/stats",
