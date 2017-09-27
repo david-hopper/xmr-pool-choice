@@ -2,19 +2,23 @@
     "Asia": {
         "Fees": [
             0.007,
-            0.02
+            0.02,
+            0.005
         ],
         "Pool Names": [
             "alimabi.cn",
-            "pooldd.com"
+            "pooldd.com",
+            "monero.riefly.id"
         ],
         "Addresses": [
-            "minexmr.alimabi.cn",
-            "xmr.pooldd.com"
+            "xmr.alimabi.cn",
+            "xmr.pooldd.com",
+            "monero.riefly.id"
         ],
         "API": [
-            "http://xmrapi.alimabi.cn:80/stats",
-            "http://api.pooldd.com:8080/stats"
+            "http://xmrapib.alimabi.cn:80/stats",
+            "http://api.pooldd.com:8080/stats",
+            "http://xmr.riefly.id:8119/stats"
         ]
     },
     "USA": {

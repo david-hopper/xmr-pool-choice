@@ -49,8 +49,8 @@ def get_pool_data(address_list, snipa_format):
 				miners = 0
 
 		#Update and iterate
-		hashrate_list.append(hashrate)
-		miners_list.append(miners)
+		hashrate_list.append(float(hashrate))
+		miners_list.append(float(miners))
 		i += 1
 		printProgressBar(i, num_pools, prefix = 'Progress', suffix = 'Complete', length = 40, fill = '█')
 
@@ -66,7 +66,7 @@ def get_network_hashrate():
 
 	network_hashrate = data['network_hashrate']
 
-	return network_hashrate
+	return float(network_hashrate)
 
 #Convert the raw H/s to something more easily viewable in terms of H/s, kH/s, MH/s etc
 def readable_hashrate(hashrate):
