@@ -31,21 +31,23 @@ eur_pool_names = ['supportXMR.com', 'xmrpool.eu',
 					'xmr.poolto.be', 'mineXMR.com',
 					'xmr.prohash.net', 'sheepman.mine.bz',
 					'xmr.mypool.online', 'moneropool.com', 
-					'monero.crypto-pool.fr','monero.miners.pro']
+					'monero.crypto-pool.fr','monero.miners.pro',
+		 			'moriaxmr.com',]
 
 eur_addresses = ['pool.supportxmr.com', 'xmrpool.eu',
 					'poolto.be', 'pool.minexmr.com',
 					'xmr.prohash.net', 'sheepman.mine.bz',
 					'xmr.mypool.online', 'mine.moneropool.com', 'xmr.crypto-pool.fr',
-					'pool.miners.pro']
+					'pool.miners.pro', 'pool.moriaxmr.com',]
 
 eur_api = ['https://pool.supportxmr.com/api/pool/stats', 'http://xmrpool.eu:8117/stats',
 			'http://mro.poolto.be:8117/stats', 'http://api.minexmr.com:8080/stats',
 			'http://xmr.prohash.net:8117/stats', 'http://sheepman.mine.bz:8117/stats',
 			'https://xmr.mypool.online/api/pool/stats', 'http://api.moneropool.com/live_stats', 
-			'https://monero.crypto-pool.fr:8091/stats', 'http://pool.miners.pro:8117/stats']
+			'https://monero.crypto-pool.fr:8091/stats', 'http://pool.miners.pro:8117/stats',
+	  		'https://api.moriaxmr.com/stats',]
 
-eur_fees = ['Adjustable!', .01, .01, .01, .01, 0, 'Adjustable!', .019, .02, .007]
+eur_fees = ['Adjustable!', .01, .01, .01, .01, 0, 'Adjustable!', .019, .02, .007, .002]
 
 eur_dict = {'Pool Names' : eur_pool_names, 'Addresses' : eur_addresses, 'API' : eur_api,
 			'Fees' : eur_fees}
