@@ -131,7 +131,8 @@
             "xmr.nanopool.org - uswest1",
             "xmr.nanopool.org - asia1",
             "mixpools.org - eu",
-            "mixpools.org - us"
+            "mixpools.org - us",
+            "monero.herominers.com"
         ],
         "Addresses": [
             "xmr.suprnova.cc",
@@ -142,7 +143,8 @@
             "xmr-us-west1.nanopool.org",
             "xmr-asia1.nanopool.org",
             "xmr.mixpools.org",
-            "xmr-us.mixpools.org"
+            "xmr-us.mixpools.org",
+            "monero.herominers.com"
         ],
         "API": [
             "https://xmr.suprnova.cc/index.php?page=api&action=public",
@@ -153,7 +155,8 @@
             "https://api.nanopool.org/v1/xmr/pool/hashrate/",
             "https://api.nanopool.org/v1/xmr/pool/hashrate/",
             "https://mixpools.org:8117/stats",
-            "https://mixpools.org:8117/stats"
+            "https://mixpools.org:8117/stats",
+            "https://monero.herominers.com/api/stats"
         ]
     }
 }
